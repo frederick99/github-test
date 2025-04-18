@@ -29,6 +29,7 @@ jobs:
         tag: ${{ github.sha }}
       run: |
         gh release create "${tag:0:7}" \
+              main.o \
               --repo="$GITHUB_REPOSITORY" \
               --title="${GITHUB_REPOSITORY#*/} ${tag:0:7}" \
               --generate-notes
