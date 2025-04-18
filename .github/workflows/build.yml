@@ -11,13 +11,17 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Build
       run: ./build.sh
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
     - name: Create Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
